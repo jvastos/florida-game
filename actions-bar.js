@@ -29,10 +29,10 @@ function create () {
             yoyo: true
             },
             {
-                y: 270,
-                duration: 400,
+                y: 275,
+                duration: 300,
                 ease: 'power2',
-                loop: 1,
+                loop: 4,
                 yoyo: true
             }
         ]
