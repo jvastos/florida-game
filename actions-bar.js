@@ -1,5 +1,7 @@
 let background, player, actionBar, circleAction1, circleAction2, circleAction3, net, trash, mouth, timeline;
 
+let backgroundScale = 2;
+
 
 function preload() {
     this.load.image('background', './assets/images/sunsetintheswamp.png');
@@ -69,10 +71,6 @@ function create () {
         mouth.setAlpha(1);
     });
 
-    // ----- END OF CREATING ELEMENTS -----
-
-    // ----- TIMELINE WITH TWEEN TO MAKE PLAYER RUN -----
-
     timeline = this.tweens.timeline({
 
         targets: player,
@@ -97,26 +95,13 @@ function create () {
     });
 
     // ----- END OF TIMELINE WITH TWEEN TO MAKE PLAYER RUN -----
-
-    /* // ----- CAMERA ZOOM OUT TO BACKROUND -----
-    const camera = this.cameras.main;
-      
-    camera.setZoom(2);
-    camera.ignore([player, actionBar, circleAction1, circleAction2, circleAction3, net, trash, mouth]);
-      
-    const tweenConfig = {
-        targets: camera,
-        zoom: 1,
-        duration: 50000,
-        ease: 'Sine.easeInOut'
-      }
-      
-      this.tweens.add(tweenConfig);
-
-    // ----- END OF CAMERA ZOOM OUT TO BACKROUND ----- */
 }
 
 function update() {
+if (backgroundScale > 1 ) {
+    backgroundScale = backgroundScale - 0.0002;
+    background.setScale(backgroundScale);
+}
     
 }
 
