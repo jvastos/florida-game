@@ -98,49 +98,11 @@ function create () {
 }
 
 function update() {
-if (backgroundScale > 1 ) {
-    backgroundScale = backgroundScale - 0.0002;
-    background.setScale(backgroundScale);
-}
-    
-}
-
-// ----- MAKING THE WORLD RESPONSIVE -----
-
-/*
-function resize() {
-    var canvas = document.querySelector("canvas");
-    var windowWidth = window.innerWidth;
-    var windowHeight = window.innerHeight;
-    var windowRatio = windowWidth / windowHeight;
-    var gameRatio = game.config.width / game.config.height;
-    if(windowRatio < gameRatio){
-        canvas.style.width = windowWidth + "px";
-        canvas.style.height = (windowWidth / gameRatio) + "px";
-    }
-    else{
-        canvas.style.width = (windowHeight * gameRatio) + "px";
-        canvas.style.height = windowHeight + "px";
+    if (backgroundScale > 1 ) {
+        backgroundScale = backgroundScale - 0.0002;
+        background.setScale(backgroundScale);
     }
 }
-
- window.onload = function(){
-    var gameConfig = {
-        type: Phaser.AUTO,
-        width: gameOptions.gameWidth,
-        height: gameOptions.gameHeight,
-        scene: {
-            preload: preload,
-            create: create,
-            update: update
-        }
-    };
-    var game = new Phaser.Game(gameConfig);
-    resize();
-    window.addEventListener("resize", resize, false);
-} */
-
-// ----- END OF MAKING THE WORLD RESPONSIVE -----
 
 
 const config = {
