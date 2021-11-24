@@ -1,0 +1,4 @@
+OBJECTS AND CLASSES
+Super cool to work with properties for elements that are actually keys in an object. It really makes a character, for example, to feel like a real character, with features and behaviors that can be used/modified.
+Also a good way to play with objects and classes before we dive into React
+
