@@ -71,6 +71,42 @@ function create () {
         mouth.setAlpha(1);
     });
 
+    //----- CREATE KEY BIDING FOR 1,2 AND 3 TO FIRE ACTIONS -----
+
+    this.input.keyboard.on('keydown', function (e) {
+        if (e.key == "1") {
+            net.y = 300;
+            net.setScale(1.3);
+            net.setAlpha(0.5);
+        } else if (e.key == "2") {
+            trash.y = 300;
+            trash.setScale(0.8);
+            trash.setAlpha(0.5);
+        } else if (e.key == "3") {
+            mouth.y = 300;
+            mouth.setScale(0.8);
+            mouth.setAlpha(0.5);
+        }
+    }, this);
+
+    this.input.keyboard.on('keyup', function (e) {
+        if (e.key == "1") {
+            net.y = 366;
+            net.setScale(0.07);
+            net.setAlpha(1);
+        } else if (e.key == "2") {
+            trash.y = 364;1
+            trash.setScale(0.04);
+            trash.setAlpha(1);
+        } else if (e.key == "3") {
+            mouth.y = 364;
+            mouth.setScale(0.04);
+            mouth.setAlpha(1);
+        }
+    }, this);
+    
+    //----- END OF CREATE KEY BIDING FOR 1,2 1AND 3 TO FIRE ACTIONS -----
+
     timeline = this.tweens.timeline({
 
         targets: player,
@@ -78,11 +114,11 @@ function create () {
         yoyo: true,
         tweens: [
             {
-            y: 270,
-            duration: 200,
-            ease: 'power2',
-            loop: 10,
-            yoyo: true
+                y: 270,
+                duration: 200,
+                ease: 'power2',
+                loop: 10,
+                yoyo: true
             },
             {
                 y: 275,
