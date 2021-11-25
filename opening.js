@@ -1,6 +1,6 @@
 class Opening extends Phaser.Scene {
     constructor () {
-        super(Openings);
+        super("Openings");
     }
 
     preload () {
