@@ -1,6 +1,6 @@
-class opening extends Phaser.Scene {
+class Opening extends Phaser.Scene {
     constructor () {
-        super({key:"opening"});
+        super({key:"Opening"});
     }
 
     preload () {
@@ -12,6 +12,6 @@ class opening extends Phaser.Scene {
     }
 
     update () {
-        
+
     }
 }
