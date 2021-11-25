@@ -1,5 +1,6 @@
-let background, player, actionBar, circleAction1, circleAction2, circleAction3, net, trash, mouth, timeline;
+let background, player, actionBar, circleAction1, circleAction2, circleAction3, net, trash, mouth, timeline, alligator;
 
+let scale = 0
 let backgroundScale = 2;
 
 
@@ -9,11 +10,12 @@ function preload() {
     this.load.image('net', './assets/images/net3.png');
     this.load.image('trash', './assets/images/trash-can.png');
     this.load.image('mouth', './assets/images/mouth.png');
+    this.load.image('alligator', './assets/images/alligator.png');
 }
 
 function create () {
 
-    // ----- CREATING ELEMENTS -----
+// ----- CREATING ELEMENTS -----
 
     background = this.add.image(config.width/2, config.height/2, 'background');
     background.setScale(0.7);
@@ -31,6 +33,11 @@ function create () {
     circleAction2.setStrokeStyle(2, 0x000000);
     circleAction3 = this.add.circle(450, 365, 25, 0xffffff).setInteractive({ cursor: 'pointer' });
     circleAction3.setStrokeStyle(2, 0x000000);
+
+    alligator = this.add.sprite(150, 250, 'alligator');
+    alligator.setScale(0.05);
+
+// ----- CREATE CLICKS FOR THE ACTIONS -----
 
     net = this.add.image(250, 366, 'net').setInteractive();
     net.setScale(0.07);
@@ -71,7 +78,11 @@ function create () {
         mouth.setAlpha(1);
     });
 
-    //----- CREATE KEY BIDING FOR 1,2 AND 3 TO FIRE ACTIONS -----
+// ----- END OF CREATE CLICKS FOR THE ACTIONS -----
+
+// ----- END OF CREATING ELEMENTS -----
+
+// ----- CREATE KEY BIDING FOR 1,2 AND 3 TO FIRE ACTIONS -----
 
     this.input.keyboard.on('keydown', function (e) {
         if (e.key == "1") {
@@ -105,7 +116,9 @@ function create () {
         }
     }, this);
     
-    //----- END OF CREATE KEY BIDING FOR 1,2 1AND 3 TO FIRE ACTIONS -----
+// ----- END OF CREATE KEY BIDING FOR 1,2 1AND 3 TO FIRE ACTIONS -----
+
+// ----- TWEEN FOR THE PLAYER RUNNIG -----
 
     timeline = this.tweens.timeline({
 
@@ -130,16 +143,23 @@ function create () {
         ]
     });
 
-    // ----- END OF TIMELINE WITH TWEEN TO MAKE PLAYER RUN -----
 }
+
+// ----- END OF TWEEN FOR THE PLAYER RUNNIG -----
 
 function update() {
     if (backgroundScale > 1 ) {
         backgroundScale = backgroundScale - 0.0002;
         background.setScale(backgroundScale);
     }
+
+    if(scale<0.10) {
+        scale = scale + 0.0002
+        alligator.setScale(scale)
+        }
 }
 
+// ----- CONFIG -----
 
 const config = {
     type: Phaser.AUTO,
@@ -157,6 +177,8 @@ const config = {
         update: update
     }
   }
+
+  // ----- END OF CONFIG -----
   
   new Phaser.Game(config);
   
