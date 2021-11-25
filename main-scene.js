@@ -1,4 +1,4 @@
-let background, player, actionBar, circleAction1, circleAction2, circleAction3, net, trash, mouth, timeline, alligator;
+let background, player, actionBar, circleAction1, circleAction2, circleAction3, net, trash, mouth, timeline, alligator, throwSound, metalSound, biteSound;
 
 let scale = 0
 let backgroundScale = 2;
@@ -11,6 +11,9 @@ function preload() {
     this.load.image('trash', './assets/images/trash-can.png');
     this.load.image('mouth', './assets/images/mouth.png');
     this.load.image('alligator', './assets/images/alligator.png');
+    this.load.audio('throw', './assets/sounds/throw.mp3')
+    this.load.audio('metal', './assets/sounds/metal-sound.mp3')
+    this.load.audio('bite', './assets/sounds/bite.mp3')
 }
 
 function create () {
@@ -37,11 +40,16 @@ function create () {
     alligator = this.add.sprite(150, 250, 'alligator');
     alligator.setScale(0.05);
 
+    throwSound = this.sound.add("throw");    
+    metalSound = this.sound.add("metal");    
+    biteSound = this.sound.add("bite");    
+
 // ----- CREATE CLICKS FOR THE ACTIONS -----
 
     net = this.add.image(250, 366, 'net').setInteractive();
     net.setScale(0.07);
     net.on("pointerdown", function() {
+        throwSound.play();
         net.y = 300;
         net.setScale(1.3);
         net.setAlpha(0.5);
@@ -55,6 +63,7 @@ function create () {
     trash = this.add.image(350, 364, 'trash').setInteractive();
     trash.setScale(0.04);
     trash.on("pointerdown", function() {
+        metalSound.play();
         trash.y = 300;
         trash.setScale(0.8);
         trash.setAlpha(0.5);
@@ -68,6 +77,7 @@ function create () {
     mouth = this.add.image(450, 364, 'mouth').setInteractive();
     mouth.setScale(0.04);
     mouth.on("pointerdown", function() {
+        biteSound.play();
         mouth.y = 300;
         mouth.setScale(0.8);
         mouth.setAlpha(0.5);
@@ -86,14 +96,17 @@ function create () {
 
     this.input.keyboard.on('keydown', function (e) {
         if (e.key == "1") {
+            throwSound.play();
             net.y = 300;
             net.setScale(1.3);
             net.setAlpha(0.5);
         } else if (e.key == "2") {
+            metalSound.play();
             trash.y = 300;
             trash.setScale(0.8);
             trash.setAlpha(0.5);
         } else if (e.key == "3") {
+            biteSound.play();
             mouth.y = 300;
             mouth.setScale(0.8);
             mouth.setAlpha(0.5);
