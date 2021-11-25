@@ -51,7 +51,7 @@ class Main extends Phaser.Scene {
     circleAction3 = this.add.circle(450, 365, 25, 0xffffff).setInteractive({ cursor: 'pointer' });
     circleAction3.setStrokeStyle(2, 0x000000);
 
-    alligator = this.add.sprite(150, 250, 'alligator');
+    alligator = this.add.sprite(100, 0, 'alligator');
     alligator.setScale(0.05);
 
     throwSound = this.sound.add("throw");    
@@ -180,9 +180,27 @@ class Main extends Phaser.Scene {
             background.setScale(backgroundScale);
         }
 
-        if(scale<0.10) {
+        /* if(scale<0.10) {
             scale = scale + 0.0002
             alligator.setScale(scale)
-            }
+        } */
+
+        this.moveThreat(alligator, 2);
     }
+
+        moveThreat(threat, speed) {
+
+            threat.y += speed;
+
+            if(threat.y > config.height) {
+            this.resetThreat(threat);
+            }
+        }
+
+        resetThreat(threat) {
+            threat.y = 100;
+
+            var randomX = Phaser.Math.Between(0, config.width);
+            threat.x = randomX;
+        }
 }
