@@ -11,11 +11,15 @@ throwSound,
 metalSound, 
 biteSound,
 scale = 0,
-backgroundScale = 2;
+backgroundScale = 2,
+randomX,
+addThreat,
+initialYPosition = 80;
 
 class Main extends Phaser.Scene {
     constructor () {
-        super({key:"Main"});
+        super("Main");
+        
     }
 
     preload() {
@@ -37,6 +41,8 @@ class Main extends Phaser.Scene {
     background = this.add.image(config.width/2, config.height/2, 'background');
     background.setScale(0.7);
 
+    alligator = this.add.sprite(50, initialYPosition, 'alligator');
+
     player = this.add.sprite(350, 280, 'man');
     player.setScale(0.4);
 
@@ -51,14 +57,12 @@ class Main extends Phaser.Scene {
     circleAction3 = this.add.circle(450, 365, 25, 0xffffff).setInteractive({ cursor: 'pointer' });
     circleAction3.setStrokeStyle(2, 0x000000);
 
-    alligator = this.add.sprite(100, 0, 'alligator');
-    alligator.setScale(0.05);
-
     throwSound = this.sound.add("throw");    
     metalSound = this.sound.add("metal");    
     biteSound = this.sound.add("bite");    
 
     // ----- CREATE CLICKS FOR THE ACTIONS -----
+    
 
     net = this.add.image(250, 366, 'net').setInteractive();
     net.setScale(0.07);
@@ -67,6 +71,8 @@ class Main extends Phaser.Scene {
             net.y = 300;
             net.setScale(1.3);
             net.setAlpha(0.5);
+            alligator.destroy();
+            addThreat = "alligator";
         });
         net.on("pointerup", function() {
             net.y = 366;
@@ -114,6 +120,8 @@ class Main extends Phaser.Scene {
                 net.y = 300;
                 net.setScale(1.3);
                 net.setAlpha(0.5);
+                alligator.destroy();
+                addThreat = "alligator";
             } else if (e.key == "2") {
                 metalSound.play();
                 trash.y = 300;
@@ -174,6 +182,8 @@ class Main extends Phaser.Scene {
 
     // ----- END OF TWEEN FOR THE PLAYER RUNNIG -----
 
+    // ----- FUNCTIONS -----
+
     update() {
         if (backgroundScale > 1 ) {
             backgroundScale = backgroundScale - 0.0002;
@@ -185,22 +195,47 @@ class Main extends Phaser.Scene {
             alligator.setScale(scale)
         } */
 
-        this.moveThreat(alligator, 2);
+        this.moveThreat(alligator, 0.8);
+
+        if(addThreat) {
+            this.createThreat(addThreat);
+            console.log(addThreat);
+        }
     }
 
-        moveThreat(threat, speed) {
+    createThreat(threat) {
+        
+        let randomX = Phaser.Math.Between(0, config.width);
+
+        if(threat === "alligator"){
+        alligator = this.add.sprite(randomX, initialYPosition, 'alligator');
+        alligator.setScale(0);
+        }
+
+        addThreat = false;
+        scale = 0;
+    }
+
+    
+    moveThreat(threat, speed) {
 
             threat.y += speed;
+
+            scale = scale + 0.0004
+            threat.setScale(scale)
 
             if(threat.y > config.height) {
             this.resetThreat(threat);
             }
         }
 
-        resetThreat(threat) {
-            threat.y = 100;
+    resetThreat(threat) {
+            threat.y = initialYPosition + (backgroundScale / 2) * -1;
+            scale = 0;
 
-            var randomX = Phaser.Math.Between(0, config.width);
+            let randomX = Phaser.Math.Between(0, config.width);
             threat.x = randomX;
         }
+
 }
+
