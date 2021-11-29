@@ -7,6 +7,10 @@ circleAction3,
 net, trash, mouth, 
 timeline, 
 alligator, 
+cuban,
+snake,
+islandboys,
+trump,
 throwSound, 
 metalSound, 
 biteSound,
@@ -14,7 +18,28 @@ scale = 0,
 backgroundScale = 2,
 randomX,
 addThreat,
+threat,
+score = 0,
+destroyListener,
+randomNumber,
+randomThreat,
+ifAddThreat = true,
 initialYPosition = 80;
+
+/* function createRandomThreat () {
+    let randomNumber = Math.floor(Math.random() * 5);
+    if (randomNumber === 0) {
+        randomThreat === 'alligator'
+    } else if (randomNumber === 1) {
+        randomThreat === 'cuban'
+    } else if (randomNumber === 2) {
+        randomThreat === 'islandboys'
+    } else if (randomNumber === 3) {
+        randomThreat === 'snake'
+    } else if (randomNumber === 4) {
+        randomThreat === 'trump'
+    }
+ } */
 
 class Main extends Phaser.Scene {
     constructor () {
@@ -29,6 +54,10 @@ class Main extends Phaser.Scene {
         this.load.image('trash', './assets/images/trash-can.png');
         this.load.image('mouth', './assets/images/mouth.png');
         this.load.image('alligator', './assets/images/alligator.png');
+        this.load.image('cuban', './assets/images/cuban.png');
+        this.load.image('islandboys', './assets/images/islandboys.png');
+        this.load.image('snake', './assets/images/snake.png');
+        this.load.image('trump', './assets/images/trump.png');
         this.load.audio('throw', './assets/sounds/throw.mp3')
         this.load.audio('metal', './assets/sounds/metal-sound.mp3')
         this.load.audio('bite', './assets/sounds/bite.mp3')
@@ -41,7 +70,8 @@ class Main extends Phaser.Scene {
     background = this.add.image(config.width/2, config.height/2, 'background');
     background.setScale(0.7);
 
-    alligator = this.add.sprite(50, initialYPosition, 'alligator');
+    // this.createThreat('alligator');
+    this.createThreat();
 
     player = this.add.sprite(350, 280, 'man');
     player.setScale(0.4);
@@ -101,6 +131,8 @@ class Main extends Phaser.Scene {
             mouth.y = 300;
             mouth.setScale(0.8);
             mouth.setAlpha(0.5);
+            /* cuban.destroy();
+            addThreat = "cuban"; */
         });
         mouth.on("pointerup", function() {
             mouth.y = 364;
@@ -109,8 +141,6 @@ class Main extends Phaser.Scene {
         });
 
     // ----- END OF CREATE CLICKS FOR THE ACTIONS -----
-
-    // ----- END OF CREATING ELEMENTS -----
 
     // ----- CREATE KEY BIDING FOR 1,2 AND 3 TO FIRE ACTIONS -----
 
@@ -132,6 +162,8 @@ class Main extends Phaser.Scene {
                 mouth.y = 300;
                 mouth.setScale(0.8);
                 mouth.setAlpha(0.5);
+                cuban.destroy();
+                addThreat = "cuban";
             }
         }, this);
 
@@ -182,6 +214,8 @@ class Main extends Phaser.Scene {
 
     // ----- END OF TWEEN FOR THE PLAYER RUNNIG -----
 
+    // ----- END OF CREATING ELEMENTS -----
+
     // ----- FUNCTIONS -----
 
     update() {
@@ -190,52 +224,87 @@ class Main extends Phaser.Scene {
             background.setScale(backgroundScale);
         }
 
-        /* if(scale<0.10) {
-            scale = scale + 0.0002
-            alligator.setScale(scale)
-        } */
+        // this.moveThreat(alligator, 0.8);
+        // this.moveThreat(cuban, 0.8);
+        // this.moveThreat(snake, 0.8);
+        // this.moveThreat(islandboys, 0.8);
+        // this.moveThreat(trump, 0.8);
 
-        this.moveThreat(alligator, 0.8);
-
-        if(addThreat) {
-            this.createThreat(addThreat);
-            console.log(addThreat);
+        if(ifAddThreat) {
+            this.createThreat();
+        } else {
+            this.moveThreat(threat, 0.8)
         }
     }
 
-    createThreat(threat) {
+    createThreat() {
         
         let randomX = Phaser.Math.Between(0, config.width);
 
-        if(threat === "alligator"){
-        alligator = this.add.sprite(randomX, initialYPosition, 'alligator');
-        alligator.setScale(0);
+        randomNumber = Math.floor(Math.random() * 5);
+        console.log(randomNumber);
+
+        if(randomNumber === 0){
+            alligator = this.add.sprite(randomX, initialYPosition, 'alligator');
+            threat = alligator
+            alligator.setScale(0);
+            alligator.on('destroy', this.addToScore)
+        } else if (randomNumber === 1) {
+            cuban = this.add.sprite(randomX, initialYPosition, 'cuban');
+            threat = cuban
+            cuban.setScale(0);
+            cuban.on('destroy', this.addToScore)
+        } else if (randomNumber === 2) {
+            snake = this.add.sprite(randomX, initialYPosition, 'snake');
+            threat = snake
+            snake.setScale(0);
+            snake.on('destroy', this.addToScore)
+        } else if (randomNumber === 3) {
+            islandboys = this.add.sprite(randomX, initialYPosition, 'islandboys');
+            threat = islandboys
+            islandboys.setScale(0);
+            islandboys.on('destroy', this.addToScore)
+        } else if (randomNumber === 4) {
+            trump = this.add.sprite(randomX, initialYPosition, 'trump');
+            threat = trump
+            trump.setScale(0);
+            trump.on('destroy', this.addToScore)
         }
 
-        addThreat = false;
+        ifAddThreat = false;
         scale = 0;
     }
 
     
     moveThreat(threat, speed) {
-
+            
             threat.y += speed;
 
-            scale = scale + 0.0004
+            scale = scale + 0.003
             threat.setScale(scale)
 
             if(threat.y > config.height) {
             this.resetThreat(threat);
+            this.createThreat();
             }
+
+            
         }
 
     resetThreat(threat) {
-            threat.y = initialYPosition + (backgroundScale / 2) * -1;
-            scale = 0;
+        threat.destroy()
+            // threat.y = initialYPosition + (backgroundScale / 2) * -1;
+            // scale = 0;
 
-            let randomX = Phaser.Math.Between(0, config.width);
-            threat.x = randomX;
+            // let randomX = Phaser.Math.Between(0, config.width);
+            // threat.x = randomX;
         }
 
+    addToScore() {
+        if(threat.y < config.height) {
+            score++;
+        }
+       console.log('score', score)
+    }
 }
 

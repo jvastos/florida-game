@@ -5,11 +5,11 @@ const config = {
     height: 400,
     width: 700,
     physics: {
-        default: "arcade",
-        arcade: {
-          gravity: false,
-          debug: true
-        }
+      default: 'arcade',
+      arcade: {
+        debug: true,
+        gravity: { y: 0 }
+      }
     },
     scene: [Main]
   }
