@@ -28,6 +28,9 @@ speed = 0.8,
 ifAddThreat = true,
 initialYPosition = 80,
 theTimer,
+lives = 3,
+livesDisplay,
+gameOverText,
 scaleSpeed = 0.003,
 delay = 1000;
 
@@ -62,7 +65,9 @@ class Main extends Phaser.Scene {
     background = this.add.image(config.width/2, config.height/2, 'background');
     background.setScale(0.7);
 
-    scoreDisplay = this.add.text(20, 20, "You have survived to: " + "0" + " Florida threats", {fontSize: "25px"})
+    scoreDisplay = this.add.text(20, 20, "You have survived to: " + "0" + " Florida threats", {fontSize: "25px"});
+
+    livesDisplay = this.add.text(20, 50, "Lives: " + "3", {fontSize: "25px"});
 
     this.createThreat();
 
@@ -248,6 +253,11 @@ class Main extends Phaser.Scene {
         
         //to stop the timer
         if(speed > 5)clearInterval(theTimer);
+
+        if(lives === 0) {
+            this.scene.pause();
+            gameOverText = this.add.text(350, 200, "Florida got you!", {fontSize: "35px"});
+        }
     }
 
     createThreat() {
@@ -302,6 +312,7 @@ class Main extends Phaser.Scene {
             threat.setScale(scale)
 
             if(threat.y > config.height) {
+            this.lifeTaking();
             this.resetThreat(threat);
             this.createThreat();
             }
@@ -321,6 +332,10 @@ class Main extends Phaser.Scene {
        console.log('score', score)
     }
 
+    lifeTaking () {
+        lives--;
+        livesDisplay.setText("Lives: " + lives);
+    }
     
 }
 
