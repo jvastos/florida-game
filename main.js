@@ -59,6 +59,8 @@ class Main extends Phaser.Scene {
 
     create () {
 
+    this.hsv = Phaser.Display.Color.HSVColorWheel();
+
     theTimer = setInterval(() => {speed += 0.6; scaleSpeed += 0.006}, 8000);
 
     // ----- CREATING ELEMENTS -----
@@ -66,9 +68,18 @@ class Main extends Phaser.Scene {
     background = this.add.image(config.width/2, config.height/2, 'background');
     background.setScale(0.7);
 
-    scoreDisplay = this.add.text(20, 20, "You have survived to: " + "0" + " Florida threats", {fontSize: "25px"});
+    scoreDisplay = this.add.text(20, 20, "You have survived to: " + "0" + " Florida threats", {
+        fontFamily: 'IM Fell French Canon SC',
+        fontSize: "25px"
+    });
+    scoreDisplay.setTint(0x20b344, 0x20b378, 0x20b3a7, 0x2031b3);
 
-    livesDisplay = this.add.text(20, 50, "Lives: " + lives, {fontSize: "25px"});
+    livesDisplay = this.add.text(20, 50, "Lives: " + lives, {
+        fontFamily: 'IM Fell French Canon SC',
+        fontSize: "25px"
+    });
+    livesDisplay.setTint(0x20b344, 0x20b378, 0x20b3a7, 0x2031b3);
+    
 
     this.createThreat();
 
