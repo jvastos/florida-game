@@ -59,7 +59,7 @@ class Main extends Phaser.Scene {
 
     create () {
 
-    theTimer = setInterval(() => {speed += 0.6; scaleSpeed += 0.006}, 10000);
+    theTimer = setInterval(() => {speed += 0.6; scaleSpeed += 0.006}, 8000);
 
     // ----- CREATING ELEMENTS -----
 
@@ -268,7 +268,9 @@ class Main extends Phaser.Scene {
             threat.setScale(scale)
 
             if(threat.y > config.height) {
-            if (threat.visible) {this.lifeTaking();}
+                if (threat.visible) {
+                    this.lifeTaking();
+                }
             this.resetThreat(threat);
             this.createThreat();
             console.log("threat hit bottom");
