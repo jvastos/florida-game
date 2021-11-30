@@ -104,7 +104,8 @@ class Main extends Phaser.Scene {
     this.input.keyboard.on('keydown', function (e) {
 
         if (e.key == "1") {
-
+            score = score - 2;
+            scoreDisplay.setText("You have survived to: " + score + " Florida threats");
             throwSound.play();
             net.y = 300;
             net.setScale(1.3);
@@ -113,6 +114,8 @@ class Main extends Phaser.Scene {
             addThreat = "alligator";
 
         } else if (e.key == "2") {
+            score = score - 2;
+            scoreDisplay.setText("You have survived to: " + score + " Florida threats");
             metalSound.play();
             trash.y = 300;
             trash.setScale(0.8);
@@ -132,12 +135,15 @@ class Main extends Phaser.Scene {
             }
         
         } else if (e.key == "3") {
+            score = score - 2;
+            scoreDisplay.setText("You have survived to: " + score + " Florida threats");
             biteSound.play();
             mouth.y = 300;
             mouth.setScale(0.8);
             mouth.setAlpha(0.5);
             cuban.destroy();
             addThreat = "cuban";
+           
         }
     }, this);
 
@@ -205,7 +211,7 @@ class Main extends Phaser.Scene {
         };
         
         //to stop the timer
-        if(speed > 5)clearInterval(theTimer);
+        if(speed > 6)clearInterval(theTimer);
 
         if(lives === 0) {
             this.gameOver()
@@ -275,7 +281,7 @@ class Main extends Phaser.Scene {
 
     addToScore() {
         if(threat.y < config.height) {
-            score++;
+            score = score + 3;
             scoreDisplay.setText("You have survived to: " + score + " Florida threats");
         }
        console.log('score', score)
