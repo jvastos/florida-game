@@ -28,7 +28,7 @@ speed = 0.8,
 ifAddThreat = true,
 initialYPosition = 80,
 theTimer,
-lives = 3,
+lives = 5,
 livesDisplay,
 gameOverText,
 restartText,
@@ -68,7 +68,7 @@ class Main extends Phaser.Scene {
 
     scoreDisplay = this.add.text(20, 20, "You have survived to: " + "0" + " Florida threats", {fontSize: "25px"});
 
-    livesDisplay = this.add.text(20, 50, "Lives: " + "3", {fontSize: "25px"});
+    livesDisplay = this.add.text(20, 50, "Lives: " + lives, {fontSize: "25px"});
 
     this.createThreat();
 
