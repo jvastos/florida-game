@@ -31,6 +31,7 @@ theTimer,
 lives = 3,
 livesDisplay,
 gameOverText,
+restartText,
 scaleSpeed = 0.003,
 delay = 1000;
 
@@ -89,69 +90,21 @@ class Main extends Phaser.Scene {
     metalSound = this.sound.add("metal");    
     biteSound = this.sound.add("bite");    
 
-    // ----- CREATE CLICKS FOR THE ACTIONS -----
-    
-
     net = this.add.image(250, 366, 'net').setInteractive();
     net.setScale(0.07);
-    net.on("pointerdown", function() {
-            throwSound.play();
-            net.y = 300;
-            net.setScale(1.3);
-            net.setAlpha(0.5);
-            alligator.destroy();
-            addThreat = "alligator";
-        });
-        net.on("pointerup", function() {
-            net.y = 366;
-            net.setScale(0.07);
-            net.setAlpha(1);
-        });
 
     trash = this.add.image(350, 364, 'trash').setInteractive();
     trash.setScale(0.04);
-    trash.on("pointerdown", function() {
-        metalSound.play();
-        trash.y = 300;
-        trash.setScale(0.8);
-        trash.setAlpha(0.5);
-        trump.destroy();
-        addThreat = "trump";
-        snake.destroy();
-        addThreat = "snake";
-        islandboys.destroy();
-        addThreat = "islandboys";
-    });
-    trash.on("pointerup", function() {
-        trash.y = 364;
-        trash.setScale(0.04);
-        trash.setAlpha(1);
-    });
 
     mouth = this.add.image(450, 364, 'mouth').setInteractive();
     mouth.setScale(0.04);
-    mouth.on("pointerdown", function() {
-        biteSound.play();
-        mouth.y = 300;
-        mouth.setScale(0.8);
-        mouth.setAlpha(0.5);
-        cuban.destroy();
-        addThreat = "cuban";
-    });
-
-    mouth.on("pointerup", function() {
-        mouth.y = 364;
-        mouth.setScale(0.04);
-        mouth.setAlpha(1);
-    });
-
-    // ----- END OF CREATE CLICKS FOR THE ACTIONS -----
 
     // ----- CREATE KEY BIDING FOR 1,2 AND 3 TO FIRE ACTIONS -----
 
     this.input.keyboard.on('keydown', function (e) {
 
         if (e.key == "1") {
+
             throwSound.play();
             net.y = 300;
             net.setScale(1.3);
@@ -255,8 +208,7 @@ class Main extends Phaser.Scene {
         if(speed > 5)clearInterval(theTimer);
 
         if(lives === 0) {
-            this.scene.pause();
-            gameOverText = this.add.text(350, 200, "Florida got you!", {fontSize: "35px"});
+            this.gameOver()
         }
     }
 
@@ -305,19 +257,16 @@ class Main extends Phaser.Scene {
     // TIMER INSIDE CREATE FUNCTION TO BOTH CALL NEW DANGER AND
     // 
     moveThreat(threat) {
-            
             threat.y += speed;
-
             scale = scale + scaleSpeed
             threat.setScale(scale)
 
             if(threat.y > config.height) {
-            this.lifeTaking();
+            if (threat.visible) {this.lifeTaking();}
             this.resetThreat(threat);
             this.createThreat();
+            console.log("threat hit bottom");
             }
-
-            
         }
 
     resetThreat(threat) {
@@ -337,6 +286,10 @@ class Main extends Phaser.Scene {
         livesDisplay.setText("Lives: " + lives);
     }
     
+    gameOver () {
+        this.scene.pause();
+    }
+
 }
 
 
