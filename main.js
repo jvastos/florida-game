@@ -16,6 +16,7 @@ let background,
     throwSound,
     metalSound,
     biteSound,
+    soundtrack,
     scale = 0,
     backgroundScale = 2,
     randomX,
@@ -60,11 +61,11 @@ class Main extends Phaser.Scene {
         this.load.audio('throw', './assets/sounds/throw.mp3')
         this.load.audio('metal', './assets/sounds/metal-sound.mp3')
         this.load.audio('bite', './assets/sounds/bite.mp3')
+        this.load.audio('soundtrack', './assets/sounds/pitbull_soundtrack.mp3')
     }
-    
+
     create() {
 
-        this.hsv = Phaser.Display.Color.HSVColorWheel();
 
         theTimer = setInterval(() => {
             speed += 0.6;
@@ -119,6 +120,8 @@ class Main extends Phaser.Scene {
         throwSound = this.sound.add("throw");
         metalSound = this.sound.add("metal");
         biteSound = this.sound.add("bite");
+        soundtrack = this.sound.add("soundtrack");
+        soundtrack.play();
 
         net = this.add.image(250, 366, 'net').setInteractive();
         net.setScale(0.07);
