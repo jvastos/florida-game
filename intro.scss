@@ -1,3 +1,21 @@
+@font-face {
+  font-family: marshthing;
+  src: url("./assets/fonts/marshthing.otf") format("opentype");
+}
+
 main {
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 65px;
+    font-family: marshthing, Verdana, Geneva, Tahoma, sans-serif;
+    color: rgba(58, 63, 46, 0.989);
+  }
+  image {
+    width: 20vw;
+  }
 }

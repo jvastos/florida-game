@@ -1,0 +1,33 @@
+@font-face {
+  font-family: marshthing;
+  src: url("./assets/fonts/marshthing.otf") format("opentype");
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main h1 {
+  font-size: 65px;
+  font-family: marshthing, Verdana, Geneva, Tahoma, sans-serif;
+  color: rgba(58, 63, 46, 0.989);
+}
+
+main image {
+  width: 20vw;
+}
+/*# sourceMappingURL=intro.css.map */
