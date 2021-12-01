@@ -353,17 +353,33 @@ class Main extends Phaser.Scene {
 
     gameOver() {
         this.scene.pause();
-        gameOverText = this.add.text(350, 100, "Florida got you!", {
-            fontSize: "35px"
-        });
-        gameOverText.setOrigin(0.5);
-        recordScoreText = this.add.text(350, 140, "Record your score fool!", {
+        gameOverText = this.add.text(250, 100, "You survived " + score + " threats", {
             fontSize: "25px"
         });
-        recordScoreText.setOrigin(0.5);
+
+        if (score < 10) {
+            this.add.text(200, 170, "Would you even survive (quiet calm place)?", {
+                fontSize: "30px"
+            });
+
+        } else if (score < 20) {
+            this.add.text(200, 170, "Message 2", {
+                fontSize: "30px"
+            });
+        } else if (score < 30) {
+            this.add.text(200, 170, "Message 3", {
+                fontSize: "30px"
+            });
+        };
+
+        // gameOverText.setOrigin(0.5);
+        // recordScoreText = this.add.text(350, 140, "Record your score fool!", {
+        //     fontSize: "25px"
+        // });
+        // recordScoreText.setOrigin(0.5);
         setTimeout(() => {
             return window.location.assign("intro.html");
-        }, 10000); // Goes back to intro.html with a 10 seconds delay
+        }, 10000); // Goes back to intro.html with a 10 seconds delay. Increase delay?
     }
 
 }
