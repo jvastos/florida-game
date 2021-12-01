@@ -39,14 +39,41 @@ main h1 {
   color: rgba(58, 63, 46, 0.989);
   font-weight: 50;
   margin-top: 35px;
+  margin-bottom: 10px;
 }
 
 main section {
-  font-family: IM Fell French Canon SC, Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
 }
 
 main section .instructions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  margin-top: 0;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  width: 50vw;
+  background-color: rgba(234, 205, 139, 0.5);
+}
+
+main section .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,11 +81,10 @@ main section .instructions {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  padding: 10px;
-  background-color: rgba(234, 205, 139, 0.5);
+}
+
+main section img {
+  width: 250px;
 }
 
 main a {
@@ -69,5 +95,6 @@ main a {
   padding: 20px;
   background-color: burlywood;
   border-radius: 50%;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=intro.css.map */

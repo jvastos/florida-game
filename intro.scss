@@ -29,16 +29,31 @@ main {
     color: rgba(58, 63, 46, 0.989);
     font-weight: 50;
     margin-top: 35px;
+    margin-bottom: 10px;
   }
   section {
-    font-family: IM Fell French Canon SC, Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
     .instructions {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: start;
-      padding: 10px;
+      margin-top: 0;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      width: 50vw;
       background-color: rgba(234, 205, 139, 0.5);
+    }
+    .buttons {
+      display: flex;
+      flex-direction: row;
+    }
+    img {
+      width: 250px;
     }
   }
   a {
@@ -49,5 +64,6 @@ main {
     padding: 20px;
     background-color: burlywood;
     border-radius: 50%;
+    margin-top: 20px;
   }
 }
