@@ -3,19 +3,51 @@
   src: url("./assets/fonts/marshthing.otf") format("opentype");
 }
 
+body {
+  margin: 0;
+  background-image: url(./assets/images/sunsetintheswamp.png);
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
 main {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  margin: 0;
+  img {
+    width: 40vw;
+  }
   h1 {
-    font-size: 65px;
+    font-size: 85px;
     font-family: marshthing, Verdana, Geneva, Tahoma, sans-serif;
     color: rgba(58, 63, 46, 0.989);
+    font-weight: 50;
+    margin-top: 35px;
   }
-  image {
-    width: 20vw;
+  section {
+    font-family: IM Fell French Canon SC, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    .instructions {
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      padding: 10px;
+      background-color: rgba(234, 205, 139, 0.5);
+    }
+  }
+  a {
+    font-family: marshthing, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    color: rgba(58, 63, 46, 0.989);
+    text-decoration: none;
+    padding: 20px;
+    background-color: burlywood;
+    border-radius: 50%;
   }
 }
