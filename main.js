@@ -64,8 +64,6 @@ class Main extends Phaser.Scene {
 
     create () {
 
-    this.hsv = Phaser.Display.Color.HSVColorWheel();
-
     theTimer = setInterval(() => {speed += 0.6; scaleSpeed += 0.006}, 8000);
 
     // ----- CREATING ELEMENTS -----
