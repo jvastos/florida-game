@@ -61,53 +61,7 @@ class Main extends Phaser.Scene {
         this.load.audio('metal', './assets/sounds/metal-sound.mp3')
         this.load.audio('bite', './assets/sounds/bite.mp3')
     }
-
-<<<<<<< HEAD
-    create () {
-
-    theTimer = setInterval(() => {speed += 0.6; scaleSpeed += 0.006}, 8000);
-
-    // ----- CREATING ELEMENTS -----
-
-    background = this.add.image(config.width/2, config.height/2, 'background');
-    background.setScale(0.7);
-
-    scoreDisplay = this.add.text(20, 20, "Threats conquered: " + score, {
-        fontFamily: 'IM Fell French Canon SC',
-        fontSize: "25px"
-    });
-    scoreDisplay.setTint(0x20b344, 0x20b378, 0x20b3a7, 0x2031b3);
-
-    livesDisplay = this.add.text(20, 50, "Lives: " + lives, {
-        fontFamily: 'IM Fell French Canon SC',
-        fontSize: "25px"
-    });
-    livesDisplay.setTint(0x20b344, 0x20b378, 0x20b3a7, 0x2031b3);
     
-
-    this.createThreat();
-
-    player = this.add.sprite(350, 280, 'man');
-    player.setScale(0.4);
-
-    actionBar = this.add.graphics();
-    actionBar.fillStyle(0x15702b, 1);
-    actionBar.fillRoundedRect(200, 330, 300, 70, { tl: 30, tr: 30, bl: 0, br: 0 });
-
-    circleAction1 = this.add.circle(250, 365, 25, 0xffffff).setInteractive({ cursor: 'pointer' });
-    circleAction1.setStrokeStyle(2, 0x000000);
-    circleAction2 = this.add.circle(350, 365, 25, 0xffffff).setInteractive({ cursor: 'pointer' });
-    circleAction2.setStrokeStyle(2, 0x000000);
-    circleAction3 = this.add.circle(450, 365, 25, 0xffffff).setInteractive({ cursor: 'pointer' });
-    circleAction3.setStrokeStyle(2, 0x000000);
-
-    throwSound = this.sound.add("throw");    
-    metalSound = this.sound.add("metal");    
-    biteSound = this.sound.add("bite");    
-
-    net = this.add.image(250, 366, 'net').setInteractive();
-    net.setScale(0.07);
-=======
     create() {
 
         this.hsv = Phaser.Display.Color.HSVColorWheel();
@@ -194,7 +148,6 @@ class Main extends Phaser.Scene {
                     iguana.destroy();
                     addThreat = "iguana";
                 }
->>>>>>> a2ae8dc0b36f69662bf13b5c05a9cfff567f70c1
 
             } else if (e.key == "2") {
                 score = score - 2;
