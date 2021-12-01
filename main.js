@@ -11,6 +11,8 @@ cuban,
 snake,
 islandboys,
 trump,
+iguana,
+coconut,
 throwSound, 
 metalSound, 
 biteSound,
@@ -32,6 +34,7 @@ lives = 5,
 livesDisplay,
 gameOverText,
 restartText,
+recordScoreText,
 scaleSpeed = 0.003,
 delay = 1000;
 
@@ -52,6 +55,8 @@ class Main extends Phaser.Scene {
         this.load.image('islandboys', './assets/images/islandboys.png');
         this.load.image('snake', './assets/images/snake.png');
         this.load.image('trump', './assets/images/trump.png');
+        this.load.image('coconut', './assets/images/coconut.png');
+        this.load.image('iguana', './assets/images/iguana.png');
         this.load.audio('throw', './assets/sounds/throw.mp3')
         this.load.audio('metal', './assets/sounds/metal-sound.mp3')
         this.load.audio('bite', './assets/sounds/bite.mp3')
@@ -68,7 +73,7 @@ class Main extends Phaser.Scene {
     background = this.add.image(config.width/2, config.height/2, 'background');
     background.setScale(0.7);
 
-    scoreDisplay = this.add.text(20, 20, "You have survived to: " + "0" + " Florida threats", {
+    scoreDisplay = this.add.text(20, 20, "Threats conquered: " + score, {
         fontFamily: 'IM Fell French Canon SC',
         fontSize: "25px"
     });
@@ -116,17 +121,25 @@ class Main extends Phaser.Scene {
 
         if (e.key == "1") {
             score = score - 2;
-            scoreDisplay.setText("You have survived to: " + score + " Florida threats");
+            scoreDisplay.setText("Threats conquered: " + score);
             throwSound.play();
             net.y = 300;
             net.setScale(1.3);
             net.setAlpha(0.5);
-            alligator.destroy();
-            addThreat = "alligator";
+            
+            if(threat===alligator) {
+                alligator.destroy();
+                addThreat = "alligator";
+            } 
+            
+            else if(threat===iguana) {
+                iguana.destroy();
+                addThreat = "iguana";
+            } 
 
         } else if (e.key == "2") {
             score = score - 2;
-            scoreDisplay.setText("You have survived to: " + score + " Florida threats");
+            scoreDisplay.setText("Threats conquered: " + score);
             metalSound.play();
             trash.y = 300;
             trash.setScale(0.8);
@@ -147,14 +160,21 @@ class Main extends Phaser.Scene {
         
         } else if (e.key == "3") {
             score = score - 2;
-            scoreDisplay.setText("You have survived to: " + score + " Florida threats");
+            scoreDisplay.setText("Threats conquered: " + score);
             biteSound.play();
             mouth.y = 300;
             mouth.setScale(0.8);
             mouth.setAlpha(0.5);
-            cuban.destroy();
-            addThreat = "cuban";
-           
+            
+
+            if(threat===cuban) {
+                cuban.destroy();
+                addThreat = "cuban";
+
+            } else if (threat===coconut) {
+                coconut.destroy();
+                addThreat = "coconut";
+            }
         }
     }, this);
 
@@ -233,7 +253,7 @@ class Main extends Phaser.Scene {
         
         let randomX = Phaser.Math.Between(0, config.width);
 
-        randomNumber = Math.floor(Math.random() * 5);
+        randomNumber = Math.floor(Math.random() * 7);
         console.log(randomNumber);
 
         if(randomNumber === 0){
@@ -261,6 +281,16 @@ class Main extends Phaser.Scene {
             threat = trump
             trump.setScale(0);
             trump.on('destroy', this.addToScore)
+        } else if (randomNumber === 5) {
+            iguana = this.add.sprite(randomX, initialYPosition, 'iguana');
+            threat = iguana
+            iguana.setScale(0);
+            iguana.on('destroy', this.addToScore)
+        }  else if (randomNumber === 6) {
+            coconut = this.add.sprite(randomX, initialYPosition, 'coconut');
+            threat = coconut
+            coconut.setScale(0);
+            coconut.on('destroy', this.addToScore)
         }
 
         ifAddThreat = false;
@@ -295,7 +325,7 @@ class Main extends Phaser.Scene {
     addToScore() {
         if(threat.y < config.height) {
             score = score + 3;
-            scoreDisplay.setText("You have survived to: " + score + " Florida threats");
+            scoreDisplay.setText("Threats conquered: " + score);
         }
        console.log('score', score)
     }
@@ -307,6 +337,10 @@ class Main extends Phaser.Scene {
     
     gameOver () {
         this.scene.pause();
+        gameOverText = this.add.text(350, 100, "Florida got you!", {fontSize: "35px"});
+        gameOverText.setOrigin(0.5);
+        recordScoreText = this.add.text(350, 140, "Record your score fool!", {fontSize: "25px"});
+        recordScoreText.setOrigin(0.5);
     }
 
 }
