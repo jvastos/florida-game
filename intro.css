@@ -38,7 +38,7 @@ main h1 {
   font-family: marshthing, Verdana, Geneva, Tahoma, sans-serif;
   color: rgba(58, 63, 46, 0.989);
   font-weight: 50;
-  margin-top: 35px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -50,8 +50,9 @@ main section {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 18px;
+  font-family: Optima, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 17px;
+  margin-top: 10px;
 }
 
 main section .instructions {
@@ -66,14 +67,61 @@ main section .instructions {
       -ms-flex-pack: start;
           justify-content: start;
   margin-top: 0;
+  margin-bottom: 0;
   padding-right: 20px;
   padding-left: 20px;
   padding-bottom: 20px;
-  width: 50vw;
+  width: 45vw;
   background-color: rgba(234, 205, 139, 0.5);
 }
 
-main section .buttons {
+main section span {
+  font-weight: bold;
+}
+
+main section .keyboardbuttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 0;
+}
+
+main section .keyboardbuttons button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 0;
+  border-radius: 10px;
+}
+
+main section img {
+  width: 250px;
+  margin-bottom: 0;
+}
+
+main .picandbutton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 30px;
+}
+
+main .picandbutton .dale {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -83,18 +131,22 @@ main section .buttons {
           flex-direction: row;
 }
 
-main section img {
-  width: 250px;
+main .picandbutton .dale .quote img {
+  width: 150px;
+  padding-top: 50px;
+  padding-left: 20px;
 }
 
 main a {
   font-family: marshthing, Verdana, Geneva, Tahoma, sans-serif;
   font-size: 30px;
+  font-weight: 50;
   color: rgba(58, 63, 46, 0.989);
   text-decoration: none;
   padding: 20px;
   background-color: burlywood;
-  border-radius: 50%;
-  margin-top: 20px;
+  border-radius: 20px;
+  margin-top: 0;
+  margin-left: 160px;
 }
 /*# sourceMappingURL=intro.css.map */
