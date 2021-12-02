@@ -89,7 +89,7 @@ class Main extends Phaser.Scene {
             speed += 0.9;
             scaleSpeed += 0.01
             console.log(speed);
-        }, 5000);
+        }, 6000);
 
         // ----- CREATING ELEMENTS -----
 
