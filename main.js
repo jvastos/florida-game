@@ -36,6 +36,12 @@ let background,
     gameOverText,
     restartText,
     recordScoreText,
+    looseMsg1,
+    looseMsg2,
+    looseMsg3,
+    looseMsg4,
+    looseMsg5,
+    gameOverText2,
     scaleSpeed = 0.003,
     delay = 1000;
 
@@ -80,13 +86,13 @@ class Main extends Phaser.Scene {
 
         scoreDisplay = this.add.text(20, 20, "Threats conquered: " + score, {
             fontFamily: 'IM Fell French Canon SC',
-            fontSize: "30px"
+            fontSize: "40px"
         });
         scoreDisplay.setTint(0x20b344, 0x20b378, 0x20b3a7, 0x2031b3);
 
-        livesDisplay = this.add.text(20, 50, "Lives: " + lives, {
+        livesDisplay = this.add.text(20, 70, "Lives: " + lives, {
             fontFamily: 'IM Fell French Canon SC',
-            fontSize: "30px"
+            fontSize: "40px"
         });
         livesDisplay.setTint(0x20b344, 0x20b378, 0x20b3a7, 0x2031b3);
 
@@ -119,7 +125,7 @@ class Main extends Phaser.Scene {
         throwSound = this.sound.add("throw");
         metalSound = this.sound.add("metal");
         biteSound = this.sound.add("bite");
-        soundtrack = this.sound.add("soundtrack");
+        soundtrack = this.sound.add("soundtrack", {volume: 0.3});
         soundtrack.play();
 
         net = this.add.image(window.innerWidth / 2 - 240, window.innerHeight - 34, 'net').setInteractive();
@@ -351,30 +357,54 @@ class Main extends Phaser.Scene {
 
     gameOver() {
         this.scene.pause();
-        gameOverText = this.add.text(250, 100, "You survived " + score + " threats", {
-            fontSize: "25px"
-        });
+
+        gameOverText = this.add.text(window.innerWidth / 2, window.innerHeight / 2 - 50, "You survived " + score + " threats", {
+            fontFamily: 'IM Fell French Canon SC',
+            fontSize: "30px"
+        })
+        gameOverText.setOrigin(0.5);
+
+        gameOverText2 = this.add.text(window.innerWidth / 2, window.innerHeight / 2 + 100, "Wait some seconds and you can try again", {
+            fontFamily: 'IM Fell French Canon SC',
+            fontSize: "20px"
+        })
+        gameOverText2.setOrigin(0.5);
 
         if (score < 10) {
-            this.add.text(200, 170, "Would you even survive (quiet calm place)?", {
+            looseMsg1 = this.add.text(window.innerWidth / 2, window.innerHeight / 2, "Would you even survive a Christmas dinner?", {
+                fontFamily: 'IM Fell French Canon SC',
                 fontSize: "30px"
             });
+            looseMsg1.setOrigin(0.5);
+    
+        } else if (score > 10) {
+            looseMsg2 = this.add.text(window.innerWidth / 2, window.innerHeight / 2, "Nice try! But you’re still gator bait", {
+                fontFamily: 'IM Fell French Canon SC',
+                fontSize: "30px"
+            });
+            looseMsg2.setOrigin(0.5);
 
-        } else if (score < 20) {
-            this.add.text(200, 170, "Message 2", {
+        } else if (score > 30) {
+            looseMsg3 = this.add.text(window.innerWidth / 200, window.innerHeight / 2, "Dale! You are a natural.", {
+                fontFamily: 'IM Fell French Canon SC',
                 fontSize: "30px"
             });
-        } else if (score < 30) {
-            this.add.text(200, 170, "Message 3", {
-                fontSize: "30px"
-            });
-        };
+            looseMsg3.setOrigin(0.5);
 
-        // gameOverText.setOrigin(0.5);
-        // recordScoreText = this.add.text(350, 140, "Record your score fool!", {
-        //     fontSize: "25px"
-        // });
-        // recordScoreText.setOrigin(0.5);
+        } else if (score > 40) {
+            looseMsg4 = this.add.text(window.innerWidth / 2, window.innerHeight / 2, "You are the new Mr. 305, Mr. Worldwide!", {
+                fontFamily: 'IM Fell French Canon SC',
+                fontSize: "30px"
+            });
+            looseMsg4.setOrigin(0.5);
+
+        }else if (score > 50) {
+            looseMsg5 = this.add.text(window.innerWidth / 2, window.innerHeight / 2, "Wow. You are now officially a honorary citizen of the great state of Florida, amigo", {
+                fontFamily: 'IM Fell French Canon SC',
+                fontSize: "30px"
+        });
+            looseMsg5.setOrigin(0.5);
+    };
         setTimeout(() => {
             return window.location.assign("intro.html");
         }, 10000); // Goes back to intro.html with a 10 seconds delay. Increase delay?
