@@ -29,14 +29,14 @@ main h1 {
   color: rgba(58, 63, 46, 0.989);
   font-weight: 50;
   margin-top: 75px;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 main section {
   display: flex;
   width: 90%;
   justify-content: space-between;
   font-family: Optima, Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 30px;
 }
 main section .instructions {
@@ -99,6 +99,26 @@ main a {
   margin-top: 0;
   margin-left: 160px;
   box-shadow: 0px 0px 25px 25px rgba(181, 249, 103, 0.4);
+}
+
+main .meetdevs {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+}
+
+main .meetdevs a {
+  font-family: marshthing, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  font-weight: 50;
+  color: rgba(58, 63, 46, 0.989);
+  text-decoration: none;
+  padding: 10px;
+  background-color: burlywood;
+  border-radius: 20px;
+  margin-top: 0;
+  margin-left: 315px;
+  box-shadow: 0px 0px 15px 15px rgba(181, 249, 103, 0.4);
 }
 
 /*# sourceMappingURL=intro.css.map */
