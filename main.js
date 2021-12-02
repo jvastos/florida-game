@@ -401,28 +401,28 @@ class Main extends Phaser.Scene {
             });
             looseMsg1.setOrigin(0.5);
     
-        } else if (score > 10 && score < 30 ) {
+        } else if (score >= 10 && score < 30 ) {
             looseMsg2 = this.add.text(window.innerWidth / 2, window.innerHeight / 2, "Nice try! But you’re still gator bait", {
                 fontFamily: 'Kanit',
                 fontSize: "30px"
             });
             looseMsg2.setOrigin(0.5);
 
-        } else if (score > 30 && score < 40 ) {
+        } else if (score >= 30 && score < 40 ) {
             looseMsg3 = this.add.text(window.innerWidth / 200, window.innerHeight / 2, "Dale! You are a natural.", {
                 fontFamily: 'Kanit',
                 fontSize: "30px"
             });
             looseMsg3.setOrigin(0.5);
 
-        } else if (score > 40 && score < 50 ) {
+        } else if (score >= 40 && score < 50 ) {
             looseMsg4 = this.add.text(window.innerWidth / 2, window.innerHeight / 2, "You are the new Mr. 305, Mr. Worldwide!", {
                 fontFamily: 'Kanit',
                 fontSize: "30px"
             });
             looseMsg4.setOrigin(0.5);
 
-        }else if (score > 50) {
+        }else if (score >= 50) {
             looseMsg5 = this.add.text(window.innerWidth / 2, window.innerHeight / 2, "Wow. You are now officially a honorary citizen of the great state of Florida, amigo", {
                 fontFamily: 'Kanit',
                 fontSize: "30px"
