@@ -17,6 +17,7 @@ let background,
     metalSound,
     biteSound,
     alligatorhiss,
+    islandBoySong,
     soundtrack,
     scale = 0,
     backgroundScale = 2,
@@ -64,6 +65,7 @@ class Main extends Phaser.Scene {
         this.load.audio('bite', './assets/sounds/bite.mp3')
         this.load.audio('soundtrack', './assets/sounds/pitbull_soundtrack.mp3')
         this.load.audio('alligatorhiss', './assets/sounds/hissing_alligator_sfx_producer.mp3')
+        this.load.audio('islandBoySong', './assets/sounds/islandBoySong.mp3')
     }
 
     create() {
@@ -122,6 +124,8 @@ class Main extends Phaser.Scene {
         biteSound = this.sound.add("bite");
         soundtrack = this.sound.add("soundtrack");
         soundtrack.play();
+        alligatorhiss = this.sound.add("alligatorhiss");
+        islandBoySong = this.sound.add("islandBoySong");
 
         net = this.add.image(window.innerWidth / 2 - 240, window.innerHeight - 34, 'net').setInteractive();
         net.setScale(0.07);
@@ -147,6 +151,7 @@ class Main extends Phaser.Scene {
                 if (threat === alligator) {
                     alligator.destroy();
                     addThreat = "alligator";
+                    alligatorhiss.play();
                 } else if (threat === iguana) {
                     iguana.destroy();
                     addThreat = "iguana";
@@ -171,6 +176,7 @@ class Main extends Phaser.Scene {
                 } else if (threat === islandboys) {
                     islandboys.destroy();
                     addThreat = "islandboys";
+                    islandBoySong.play();
                 }
 
             } else if (e.key == "3") {
