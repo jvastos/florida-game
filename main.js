@@ -20,6 +20,8 @@ let background,
     snakeHiss,
     queRico,
     islandBoySong,
+    trumpStupid,
+    trumpAmerica,
     soundtrack,
     scale = 0,
     backgroundScale = 2,
@@ -70,6 +72,8 @@ class Main extends Phaser.Scene {
         this.load.audio('islandBoySong', './assets/sounds/islandBoySong.mp3')
         this.load.audio('snakeHiss', './assets/sounds/snakeHissSFXProducer.mp3')
         this.load.audio('queRico', './assets/sounds/queRico.mp3')
+        this.load.audio('trumpStupid', './assets/sounds/trumpStupid.mp3')
+        this.load.audio('trumpAmerica', './assets/sounds/trumpAmerica.mp3')
     }
 
     create() {
@@ -132,6 +136,8 @@ class Main extends Phaser.Scene {
         islandBoySong = this.sound.add("islandBoySong");
         snakeHiss = this.sound.add("snakeHiss");
         queRico = this.sound.add('queRico');
+        trumpStupid = this.sound.add('trumpStupid');
+        trumpAmerica = this.sound.add('trumpAmerica');
 
         net = this.add.image(window.innerWidth / 2 - 240, window.innerHeight - 34, 'net').setInteractive();
         net.setScale(0.07);
@@ -179,6 +185,7 @@ class Main extends Phaser.Scene {
                 } else if (threat === trump) {
                     trump.destroy();
                     addThreat = "trump";
+                    trumpAmerica.play();
 
                 } else if (threat === islandboys) {
                     islandboys.destroy();
