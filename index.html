@@ -1,19 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>A Florida Man</title>
-        <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
-        <link rel="stylesheet" href="./style.css">
-        <script src="./main.js"></script>
-        <script src="./game.js"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
-    </head>
-    <body>
-    
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./intro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
+    <title>Florida Game</title>
+  </head>
+  <body>
+    <main>
+      <h1>A Florida Man</h1>
+      <section>
+        <div class="instructions">
+          <h3>Instructions</h3>
+          Do YOU have what it takes to survive Florida??<br>
+          You never know what's gonna come for you in this unforgiving place. <br>
+          Help the Florida Man conquer the random threats that appear on the screen. You've got 3 actions to choose from on your keyboard:<br><br>
+          <div class="keyboardbuttons">
+          <button>1 <br>capture</button>
+          <button>2 <br>trash</button>
+          <button>3 <br>bite</button>
+          </div>
+          <br>
+          Choose the correct action before the threat gets you!<br>
+          Pick the wrong action? <span>You lose 2 points.</span> <br>
+          Don't conquer it in time? <span>You lose 1 life.</span>
+          You've got 5 lives to live, but in Florida that's nothing!
+        </div>
+        <div class="picandbutton">
+          <div class="dale">
+            <div class="quote">
+              <img src="assets/images/dale.png">
+            </div>
+            <img src="assets/images/man.png">
+          </div>
+          <div id="floridaBtn">
+          <a href="index.html">ENTER FLORIDA</a>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+    <script src="./intro.js"></script>
+  </body>
 </html>

@@ -430,8 +430,8 @@ class Main extends Phaser.Scene {
             looseMsg5.setOrigin(0.5);
     };
         setTimeout(() => {
-            return window.location.assign("intro.html");
-        }, 20000); // Goes back to intro.html with a 20 seconds delay. Increase delay?
+            return window.location.assign("index.html");
+        }, 20000); // Goes back to index.html with a 20 seconds delay. Increase delay?
     }
 
 }
