@@ -28,8 +28,8 @@ main .inspo {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 40px;
-  background-color: #dd4f4d;
+  padding-top: 10px;
+  background-color: #ef5847;
 }
 
 main .inspo h1 {
@@ -37,14 +37,42 @@ main .inspo h1 {
 }
 
 main .inspo h2 {
-  padding-top: 30px;
   font-size: 30px;
 }
 
 main .inspo p {
+  width: 50vw;
+  text-align: center;
+  font-size: 18px;
   background-color: cornsilk;
   border: solid 3px cornsilk;
   border-radius: 10px;
+  padding: 5px;
+}
+
+main .inspo .backbutton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+}
+
+main .inspo .backbutton a {
+  text-decoration: none;
+  font-size: 25px;
+  color: cornsilk;
+  padding: 5px;
+  background-color: black;
+  border: solid 2px black;
+  border-radius: 10px;
+  margin-right: 50px;
 }
 
 main .developers {
@@ -74,7 +102,7 @@ main .developers section {
   background-color: cornsilk;
   width: 16vw;
   padding: 10px;
-  margin: 15px;
+  margin: 10px 15px 15px 15px;
 }
 
 main .developers section h3 {
