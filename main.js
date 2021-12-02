@@ -68,9 +68,9 @@ class Main extends Phaser.Scene {
 
 
         theTimer = setInterval(() => {
-            speed += 0.6;
-            scaleSpeed += 0.006
-        }, 8000);
+            speed += 0.7;
+            scaleSpeed += 0.008
+        }, 3000);
 
         // ----- CREATING ELEMENTS -----
 
@@ -79,42 +79,40 @@ class Main extends Phaser.Scene {
 
         scoreDisplay = this.add.text(20, 20, "Threats conquered: " + score, {
             fontFamily: 'IM Fell French Canon SC',
-            fontSize: "25px"
+            fontSize: "30px"
         });
         scoreDisplay.setTint(0x20b344, 0x20b378, 0x20b3a7, 0x2031b3);
 
         livesDisplay = this.add.text(20, 50, "Lives: " + lives, {
             fontFamily: 'IM Fell French Canon SC',
-            fontSize: "25px"
+            fontSize: "30px"
         });
         livesDisplay.setTint(0x20b344, 0x20b378, 0x20b3a7, 0x2031b3);
 
 
         this.createThreat();
 
-        player = this.add.sprite(350, 280, 'man');
-        player.setScale(0.4);
+        player = this.add.sprite(window.innerHeight - 20, window.innerWidth / 2, 'man');
+        player.setScale(0.6);
+        player.setOrigin(0.5, 1);
 
         actionBar = this.add.graphics();
         actionBar.fillStyle(0x15702b, 1);
-        actionBar.fillRoundedRect(200, 330, 300, 70, {
+        actionBar.fillRoundedRect(window.innerWidth / 2 - 280
+            , window.innerHeight - 70, 500, 70, {
             tl: 30,
             tr: 30,
             bl: 0,
             br: 0
         });
 
-        circleAction1 = this.add.circle(250, 365, 25, 0xffffff).setInteractive({
-            cursor: 'pointer'
-        });
+        circleAction1 = this.add.circle(window.innerWidth / 2 - 240, window.innerHeight - 35, 25, 0xffffff);
         circleAction1.setStrokeStyle(2, 0x000000);
-        circleAction2 = this.add.circle(350, 365, 25, 0xffffff).setInteractive({
-            cursor: 'pointer'
-        });
+
+        circleAction2 = this.add.circle(window.innerWidth / 2 - 30, window.innerHeight - 35, 25, 0xffffff);
         circleAction2.setStrokeStyle(2, 0x000000);
-        circleAction3 = this.add.circle(450, 365, 25, 0xffffff).setInteractive({
-            cursor: 'pointer'
-        });
+
+        circleAction3 = this.add.circle(window.innerWidth / 2 + 180, window.innerHeight - 35, 25, 0xffffff);
         circleAction3.setStrokeStyle(2, 0x000000);
 
         throwSound = this.sound.add("throw");
@@ -123,13 +121,13 @@ class Main extends Phaser.Scene {
         soundtrack = this.sound.add("soundtrack");
         soundtrack.play();
 
-        net = this.add.image(250, 366, 'net').setInteractive();
+        net = this.add.image(window.innerWidth / 2 - 240, window.innerHeight - 34, 'net').setInteractive();
         net.setScale(0.07);
 
-        trash = this.add.image(350, 364, 'trash').setInteractive();
+        trash = this.add.image(window.innerWidth / 2 - 30, window.innerHeight - 36, 'trash').setInteractive();
         trash.setScale(0.04);
 
-        mouth = this.add.image(450, 364, 'mouth').setInteractive();
+        mouth = this.add.image(window.innerWidth / 2 + 180, window.innerHeight - 36, 'mouth').setInteractive();
         mouth.setScale(0.04);
 
         // ----- CREATE KEY BIDING FOR 1,2 AND 3 TO FIRE ACTIONS -----
@@ -140,8 +138,8 @@ class Main extends Phaser.Scene {
                 score = score - 2;
                 scoreDisplay.setText("Threats conquered: " + score);
                 throwSound.play();
-                net.y = 300;
-                net.setScale(1.3);
+                net.y = net.y - 300;
+                net.setScale(2);
                 net.setAlpha(0.5);
 
                 if (threat === alligator) {
@@ -156,8 +154,8 @@ class Main extends Phaser.Scene {
                 score = score - 2;
                 scoreDisplay.setText("Threats conquered: " + score);
                 metalSound.play();
-                trash.y = 300;
-                trash.setScale(0.8);
+                trash.y = trash.y - 400;
+                trash.setScale(1);
                 trash.setAlpha(0.5);
 
                 if (threat === snake) {
@@ -177,8 +175,8 @@ class Main extends Phaser.Scene {
                 score = score - 2;
                 scoreDisplay.setText("Threats conquered: " + score);
                 biteSound.play();
-                mouth.y = 300;
-                mouth.setScale(0.8);
+                mouth.y = mouth.y - 300;
+                mouth.setScale(1);
                 mouth.setAlpha(0.5);
 
 
@@ -195,16 +193,15 @@ class Main extends Phaser.Scene {
 
         this.input.keyboard.on('keyup', function (e) {
             if (e.key == "1") {
-                net.y = 366;
+                net.y = window.innerHeight - 34;
                 net.setScale(0.07);
                 net.setAlpha(1);
             } else if (e.key == "2") {
-                trash.y = 364;
-                1
+                trash.y = window.innerHeight - 36;
                 trash.setScale(0.04);
                 trash.setAlpha(1);
             } else if (e.key == "3") {
-                mouth.y = 364;
+                mouth.y = window.innerHeight - 36;
                 mouth.setScale(0.04);
                 mouth.setAlpha(1);
             }
@@ -220,14 +217,14 @@ class Main extends Phaser.Scene {
             loop: Infinity,
             yoyo: true,
             tweens: [{
-                    y: 270,
+                    y: player.y - 30,
                     duration: 200,
                     ease: 'power2',
                     loop: 10,
                     yoyo: true
                 },
                 {
-                    y: 275,
+                    y: player.y - 25,
                     duration: 300,
                     ease: 'power2',
                     loop: 4,
@@ -245,7 +242,7 @@ class Main extends Phaser.Scene {
     // ----- FUNCTIONS -----
 
     update() {
-        if (backgroundScale > 1) {
+        if (backgroundScale > 1.5) {
             backgroundScale = backgroundScale - 0.0002;
             background.setScale(backgroundScale);
         };
@@ -257,7 +254,7 @@ class Main extends Phaser.Scene {
         };
 
         //to stop the timer
-        if (speed > 6) clearInterval(theTimer);
+        if (speed > 10) clearInterval(theTimer);
 
         if (lives === 0) {
             this.gameOver();
