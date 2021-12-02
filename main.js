@@ -16,6 +16,7 @@ let background,
     throwSound,
     metalSound,
     biteSound,
+    alligatorhiss,
     soundtrack,
     scale = 0,
     backgroundScale = 2,
@@ -62,6 +63,7 @@ class Main extends Phaser.Scene {
         this.load.audio('metal', './assets/sounds/metal-sound.mp3')
         this.load.audio('bite', './assets/sounds/bite.mp3')
         this.load.audio('soundtrack', './assets/sounds/pitbull_soundtrack.mp3')
+        this.load.audio('alligatorhiss', './assets/sounds/hissing_alligator_sfx_producer.mp3')
     }
 
     create() {
@@ -376,7 +378,7 @@ class Main extends Phaser.Scene {
         // recordScoreText.setOrigin(0.5);
         setTimeout(() => {
             return window.location.assign("intro.html");
-        }, 10000); // Goes back to intro.html with a 10 seconds delay. Increase delay?
+        }, 15000); // Goes back to intro.html with a 10 seconds delay. Increase delay?
     }
 
 }
