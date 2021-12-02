@@ -351,3 +351,7 @@ MigrationBackup/
 
 #Text files (like the "learning-log"
 *.txt
+
+#SASS watching files
+*.css.map
+*.scss
