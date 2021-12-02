@@ -137,8 +137,9 @@ class Main extends Phaser.Scene {
         throwSound = this.sound.add("throw");
         metalSound = this.sound.add("metal");
         biteSound = this.sound.add("bite");
-        soundtrack = this.sound.add("soundtrack", {volume: 0.3});
+        soundtrack = this.sound.add("soundtrack", {volume: 0.4});
         soundtrack.play();
+
         alligatorhiss = this.sound.add("alligatorhiss");
         islandBoySong = this.sound.add("islandBoySong");
         snakeHiss = this.sound.add("snakeHiss");
