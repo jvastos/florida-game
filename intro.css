@@ -2,7 +2,6 @@
   font-family: marshthing;
   src: url("./assets/fonts/marshthing.otf") format("opentype");
 }
-
 body {
   margin: 0;
   background-image: url(./assets/images/sunsetintheswamp.png);
@@ -16,23 +15,14 @@ body {
 main {
   width: 100vw;
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   margin: 0;
 }
-
 main img {
   width: 40vw;
 }
-
 main h1 {
   font-size: 85px;
   font-family: marshthing, Verdana, Geneva, Tahoma, sans-serif;
@@ -41,31 +31,18 @@ main h1 {
   margin-top: 20px;
   margin-bottom: 10px;
 }
-
 main section {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 90%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   font-family: Optima, Verdana, Geneva, Tahoma, sans-serif;
   font-size: 17px;
   margin-top: 10px;
 }
-
 main section .instructions {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
+  flex-direction: column;
+  justify-content: start;
   margin-top: 0;
   margin-bottom: 0;
   padding-right: 20px;
@@ -74,22 +51,14 @@ main section .instructions {
   width: 45vw;
   background-color: rgba(234, 205, 139, 0.5);
 }
-
 main section span {
   font-weight: bold;
 }
-
 main section .keyboardbuttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   margin-bottom: 0;
 }
-
 main section .keyboardbuttons button {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
@@ -98,45 +67,26 @@ main section .keyboardbuttons button {
   margin-bottom: 0;
   border-radius: 10px;
 }
-
 main section img {
   width: 250px;
   margin-bottom: 0;
 }
-
 main .picandbutton {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 30px;
 }
-
 main .picandbutton .dale {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
-
 main .picandbutton .dale .quote img {
   width: 150px;
   padding-top: 50px;
   padding-left: 20px;
 }
-
 main a {
   font-family: marshthing, Verdana, Geneva, Tahoma, sans-serif;
   font-size: 30px;
@@ -149,4 +99,5 @@ main a {
   margin-top: 0;
   margin-left: 160px;
 }
+
 /*# sourceMappingURL=intro.css.map */
