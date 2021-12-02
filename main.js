@@ -430,7 +430,7 @@ class Main extends Phaser.Scene {
     };
         setTimeout(() => {
             return window.location.assign("intro.html");
-        }, 15000); // Goes back to intro.html with a 10 seconds delay. Increase delay?
+        }, 20000); // Goes back to intro.html with a 20 seconds delay. Increase delay?
     }
 
 }
