@@ -16,6 +16,12 @@ let background,
     throwSound,
     metalSound,
     biteSound,
+    alligatorhiss,
+    snakeHiss,
+    queRico,
+    islandBoySong,
+    trumpStupid,
+    trumpAmerica,
     soundtrack,
     scale = 0,
     backgroundScale = 2,
@@ -68,6 +74,12 @@ class Main extends Phaser.Scene {
         this.load.audio('metal', './assets/sounds/metal-sound.mp3')
         this.load.audio('bite', './assets/sounds/bite.mp3')
         this.load.audio('soundtrack', './assets/sounds/pitbull_soundtrack.mp3')
+        this.load.audio('alligatorhiss', './assets/sounds/hissing_alligator_sfx_producer.mp3')
+        this.load.audio('islandBoySong', './assets/sounds/islandBoySong.mp3')
+        this.load.audio('snakeHiss', './assets/sounds/snakeHissSFXProducer.mp3')
+        this.load.audio('queRico', './assets/sounds/queRico.mp3')
+        this.load.audio('trumpStupid', './assets/sounds/trumpStupid.mp3')
+        this.load.audio('trumpAmerica', './assets/sounds/trumpAmerica.mp3')
     }
 
     create() {
@@ -127,6 +139,12 @@ class Main extends Phaser.Scene {
         biteSound = this.sound.add("bite");
         soundtrack = this.sound.add("soundtrack", {volume: 0.3});
         soundtrack.play();
+        alligatorhiss = this.sound.add("alligatorhiss");
+        islandBoySong = this.sound.add("islandBoySong");
+        snakeHiss = this.sound.add("snakeHiss");
+        queRico = this.sound.add('queRico');
+        trumpStupid = this.sound.add('trumpStupid');
+        trumpAmerica = this.sound.add('trumpAmerica');
 
         net = this.add.image(window.innerWidth / 2 - 240, window.innerHeight - 34, 'net').setInteractive();
         net.setScale(0.07);
@@ -152,6 +170,7 @@ class Main extends Phaser.Scene {
                 if (threat === alligator) {
                     alligator.destroy();
                     addThreat = "alligator";
+                    alligatorhiss.play();
                 } else if (threat === iguana) {
                     iguana.destroy();
                     addThreat = "iguana";
@@ -168,14 +187,17 @@ class Main extends Phaser.Scene {
                 if (threat === snake) {
                     snake.destroy();
                     addThreat = "snake";
+                    snakeHiss.play();
 
                 } else if (threat === trump) {
                     trump.destroy();
                     addThreat = "trump";
+                    trumpAmerica.play();
 
                 } else if (threat === islandboys) {
                     islandboys.destroy();
                     addThreat = "islandboys";
+                    islandBoySong.play();
                 }
 
             } else if (e.key == "3") {
@@ -190,6 +212,7 @@ class Main extends Phaser.Scene {
                 if (threat === cuban) {
                     cuban.destroy();
                     addThreat = "cuban";
+                    queRico.play();
 
                 } else if (threat === coconut) {
                     coconut.destroy();
@@ -407,7 +430,7 @@ class Main extends Phaser.Scene {
     };
         setTimeout(() => {
             return window.location.assign("intro.html");
-        }, 10000); // Goes back to intro.html with a 10 seconds delay. Increase delay?
+        }, 15000); // Goes back to intro.html with a 10 seconds delay. Increase delay?
     }
 
 }
