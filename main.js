@@ -89,7 +89,7 @@ class Main extends Phaser.Scene {
             speed += 0.9;
             scaleSpeed += 0.01
             console.log(speed);
-        }, 4000);
+        }, 5000);
 
         // ----- CREATING ELEMENTS -----
 
@@ -409,7 +409,7 @@ class Main extends Phaser.Scene {
             looseMsg2.setOrigin(0.5);
 
         } else if (score >= 30 && score < 40 ) {
-            looseMsg3 = this.add.text(window.innerWidth / 200, window.innerHeight / 2, "Dale! You are a natural.", {
+            looseMsg3 = this.add.text(window.innerWidth / 2, window.innerHeight / 2, "Dale! You are a natural.", {
                 fontFamily: 'Kanit',
                 fontSize: "30px"
             });
