@@ -68,8 +68,8 @@ class Main extends Phaser.Scene {
 
 
         theTimer = setInterval(() => {
-            speed += 0.7;
-            scaleSpeed += 0.008
+            speed += 0.9;
+            scaleSpeed += 0.01
         }, 3000);
 
         // ----- CREATING ELEMENTS -----
@@ -254,7 +254,7 @@ class Main extends Phaser.Scene {
         };
 
         //to stop the timer
-        if (speed > 10) clearInterval(theTimer);
+        if (speed > 11) clearInterval(theTimer);
 
         if (lives === 0) {
             this.gameOver();
