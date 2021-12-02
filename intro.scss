@@ -1,0 +1,104 @@
+@font-face {
+  font-family: marshthing;
+  src: url("./assets/fonts/marshthing.otf") format("opentype");
+}
+
+body {
+  margin: 0;
+  background-image: url(./assets/images/sunsetintheswamp.png);
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  img {
+    width: 40vw;
+  }
+  h1 {
+    font-size: 85px;
+    font-family: marshthing, Verdana, Geneva, Tahoma, sans-serif;
+    color: rgba(58, 63, 46, 0.989);
+    font-weight: 50;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  section {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    font-family: Optima, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 17px;
+    margin-top: 10px;
+    .instructions {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      width: 45vw;
+      background-color: rgba(234, 205, 139, 0.5);
+    }
+    span {
+      font-weight: bold;
+    }
+    .keyboardbuttons {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 0;
+      button {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 14px;
+        width: 70px;
+        height: 70px;
+        margin-bottom: 0;
+        border-radius: 10px;
+      }
+    }
+    img {
+      width: 250px;
+      margin-bottom: 0;
+    }
+  }
+  .picandbutton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    .dale {
+      display: flex;
+      flex-direction: row;
+      .quote {
+        img {
+          width: 150px;
+          padding-top: 50px;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+  a {
+    font-family: marshthing, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    font-weight: 50;
+    color: rgba(58, 63, 46, 0.989);
+    text-decoration: none;
+    padding: 20px;
+    background-color: burlywood;
+    border-radius: 20px;
+    margin-top: 0;
+    margin-left: 160px;
+  }
+}
