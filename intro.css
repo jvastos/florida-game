@@ -28,7 +28,7 @@ main h1 {
   font-family: marshthing, Verdana, Geneva, Tahoma, sans-serif;
   color: rgba(58, 63, 46, 0.989);
   font-weight: 50;
-  margin-top: 20px;
+  margin-top: 75px;
   margin-bottom: 10px;
 }
 main section {
@@ -36,8 +36,8 @@ main section {
   width: 90%;
   justify-content: space-between;
   font-family: Optima, Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 17px;
-  margin-top: 10px;
+  font-size: 20px;
+  margin-top: 30px;
 }
 main section .instructions {
   display: flex;
@@ -61,14 +61,14 @@ main section .keyboardbuttons {
 }
 main section .keyboardbuttons button {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 14px;
-  width: 70px;
-  height: 70px;
+  font-size: 16px;
+  width: 80px;
+  height: 80px;
   margin-bottom: 0;
   border-radius: 10px;
 }
 main section img {
-  width: 250px;
+  width: 275px;
   margin-bottom: 0;
 }
 main .picandbutton {
