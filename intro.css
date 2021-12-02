@@ -148,5 +148,7 @@ main a {
   border-radius: 20px;
   margin-top: 0;
   margin-left: 160px;
+  -webkit-box-shadow: 0px 0px 25px 25px rgba(181, 249, 103, 0.4);
+          box-shadow: 0px 0px 25px 25px rgba(181, 249, 103, 0.4);
 }
 /*# sourceMappingURL=intro.css.map */
