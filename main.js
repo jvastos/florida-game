@@ -143,7 +143,7 @@ class Main extends Phaser.Scene {
         alligatorhiss = this.sound.add("alligatorhiss");
         islandBoySong = this.sound.add("islandBoySong");
         snakeHiss = this.sound.add("snakeHiss");
-        queRico = this.sound.add('queRico');
+        queRico = this.sound.add('queRico', {volume: 2.5});
         trumpStupid = this.sound.add('trumpStupid');
         trumpAmerica = this.sound.add('trumpAmerica');
 
